@@ -1,17 +1,25 @@
+const display = document.getElementById("display");
+
+// Function to clear the display
 function clearDisplay() {
-    document.getElementById("display").textContent = "";
+    display.textContent = "";
 }
 
+// Function to remove the last character from the display
+function backspace() {
+    display.textContent = display.textContent.slice(0, -1);
+}
+
+// Function to append a value to the display
 function appendValue(value) {
-    const display = document.getElementById("display");
     display.textContent += value;
 }
 
+// Function to evaluate the expression in the display
 function calculate() {
-    const display = document.getElementById("display");
     try {
         display.textContent = eval(display.textContent);
-    } catch {
+    } catch (error) {
         display.textContent = "Error";
     }
 }
